@@ -32,9 +32,9 @@ namespace buildgdi
             }
             if (extract)
             {
-                Console.WriteLine("Starting extraction");
+                Console.WriteLine("Beginn der Extraktion");
                 Extract(gdiPath, ipBin, outPath);
-                Console.WriteLine("Done!");
+                Console.WriteLine("Erledigt!");
             }
             else if (rebuild)
             {
@@ -60,7 +60,7 @@ namespace buildgdi
                     {
                         Directory.CreateDirectory(Path.GetDirectoryName(ipBin));
                     }
-                    Console.WriteLine("Extracting IP.BIN");
+                    Console.WriteLine("IP.BIN extrahieren");
                     using (Stream input = reader.ReadIPBin())
                     {
                         using (FileStream output = new FileStream(ipBin, FileMode.Create, FileAccess.ReadWrite, FileShare.Read))
@@ -88,7 +88,7 @@ namespace buildgdi
                     filePath = filePath.Substring(1); //I don't want the leading slash, it breaks things;
                 }
                 string destPath = Path.Combine(toPath, filePath);
-                Console.WriteLine($"Extracting {filePath}");
+                Console.WriteLine($"Extrahieren {filePath}");
                 using (Stream input = reader.OpenFile(file, FileMode.Open, FileAccess.Read))
                 {
                     using (FileStream output = new FileStream(destPath, FileMode.Create, FileAccess.ReadWrite))
@@ -144,7 +144,7 @@ namespace buildgdi
                     string track = ParseGdiTrackPath(gdiLines[i], gdiDirectory);
                     if (!File.Exists(track))
                     {
-                        Console.WriteLine($"ERROR: Cannot find the CDDA track {Path.GetFileName(track)} referenced in the original .gdi file");
+                        Console.WriteLine($"FEHLER: Der CDDA Track {Path.GetFileName(track)}, auf den in der ursprünglichen .GDI Datei verwiesen wird, kann nicht gefunden werden");
                         return;
                     }
                     cdda.Add(track);
@@ -170,7 +170,7 @@ namespace buildgdi
                 {
                     builder.VolumeIdentifier = volume;
                 }
-                Console.Write("Writing");
+                Console.Write("Schreiben");
 
                 builder.ImportReader(reader);
                 builder.ImportFolder(data, "", true);
@@ -197,7 +197,7 @@ namespace buildgdi
                 List<DiscTrack> tracks = builder.BuildGDROM(outPath[0]);
                 //Finally, save the .gdi file
                 builder.WriteGdiFile(gdiLines, tracks, Path.Combine(outPath[0], "disc.gdi"));
-                Console.WriteLine(" Done!");
+                Console.WriteLine(" Erledigt!");
             }
         }
 
@@ -224,7 +224,7 @@ namespace buildgdi
             {
                 builder.VolumeIdentifier = volume;
             }
-            Console.Write("Writing");
+            Console.Write("Schreiben");
             List<DiscTrack> tracks = null;
             if (fileOutput)
             {
@@ -239,7 +239,7 @@ namespace buildgdi
             {
                 tracks = builder.BuildGDROM(outPath[0]);
             }
-            Console.WriteLine(" Done!");
+            Console.WriteLine(" Erledigt!");
             if (gdiPath != null)
             {
                 builder.UpdateGdiFile(tracks, gdiPath);
@@ -267,7 +267,7 @@ namespace buildgdi
             {
                 if (string.IsNullOrEmpty(gdiPath) || !File.Exists(gdiPath) || !Path.GetExtension(gdiPath).ToLower().Equals(".gdi"))
                 {
-                    Console.WriteLine($"A .gdi file is required in {(extracting ? "extract" : "rebuild")} mode");
+                    Console.WriteLine($"Eine .GDI Datei ist erforderlich {(extracting ? "extract" : "rebuild")} Mode");
                     return false;
                 }
             }
@@ -276,7 +276,7 @@ namespace buildgdi
                 //User wants to build a new high density data track from scratch
                 if (gdiPath != null && !File.Exists(gdiPath))
                 {
-                    Console.WriteLine("The .gdi file specified does not exist.");
+                    Console.WriteLine("Die angegebene .GDI Datei existiert nicht.");
                     return false;
                 }
             }
@@ -284,12 +284,12 @@ namespace buildgdi
             {
                 if (outPath.Count != 1)
                 {
-                    Console.WriteLine("Only one output path is allowed for extraction");
+                    Console.WriteLine("Für die Extraktion ist nur ein Ausgabepfad zulässig");
                     return false;
                 }
                 else if (!string.IsNullOrEmpty(Path.GetExtension(outPath[0])))
                 {
-                    Console.WriteLine("Extraction output must be a folder, not a file!");
+                    Console.WriteLine("Die Extraktions Ausgabe muss ein Ordner sein, nicht eine Datei!");
                     return false;
                 }
                 return true; //This is all we need to check for extraction
@@ -302,31 +302,31 @@ namespace buildgdi
                 }
                 else
                 {
-                    Console.WriteLine("Failed to understand the custom date argument. Please try using the format: YYYY-MM-dd hh:mm:ss");
+                    Console.WriteLine("Das Argument für das benutzerdefinierte Datum wurde nicht verstanden. Bitte versuchen Sie, das Format zu verwenden: JJJJ-MM-tt hh:mm:ss");
                     return false;
                 }
             }
             if (data == null || (!rebuild && ipBin == null) || outPath.Count == 0)
             {
-                Console.WriteLine("The required fields have not been provided.");
+                Console.WriteLine("Die erforderlichen Felder sind nicht ausgefüllt worden.");
                 return false;
             }
             if (!Directory.Exists(data))
             {
-                Console.WriteLine("The specified data directory does not exist!");
+                Console.WriteLine("Das angegebene Datenverzeichnis existiert nicht!");
                 return false;
             }
             if (ipBin != null && !File.Exists(ipBin))
             {
                 //Rebuild mode will use the existing IP.BIN, unless you specify one to replace it
-                Console.WriteLine("The specified IP.BIN file does not exist!");
+                Console.WriteLine("Die angegebene IP.BIN Datei existiert nicht!");
                 return false;
             }
             foreach (string track in cdda)
             {
                 if (!File.Exists(track))
                 {
-                    Console.WriteLine("The CDDA track " + track + " does not exist!");
+                    Console.WriteLine("Den CDDA Track " + track + " gibt es nicht!");
                     return false;
                 }
             }
@@ -339,26 +339,26 @@ namespace buildgdi
                     {
                         if (Path.GetDirectoryName(gdiPath).Equals(Path.GetDirectoryName(path)))
                         {
-                            Console.WriteLine("Cannot rebuild the same GDI as the input. That would overwrite the disc we are reading files from!");
+                            Console.WriteLine("Es kann nicht die gleiche GDI wie die Eingabe neu erstellt werden. Das würde den Datenträger, von dem wir Dateien lesen, überschreiben!");
                             return false;
                         }
                         fileOutput = false;
                     }
                     else
                     {
-                        Console.WriteLine("Rebuild mode requires a directory to output the new GDI!");
+                        Console.WriteLine("Der Rebuild Modus erfordert ein Verzeichnis zur Ausgabe der neuen GDI!");
                         return false;
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Rebuild mode only accepts a single directory as the output path, which cannot be the same as the input.");
+                    Console.WriteLine("Der Rebuild Modus akzeptiert nur ein einzelnes Verzeichnis als Ausgabepfad, der nicht mit dem Eingabepfad übereinstimmen darf.");
                     return false;
                 }
             }
             else if (outPath.Count > 2)
             {
-                Console.WriteLine("Too many output paths specified.");
+                Console.WriteLine("Zu viele Ausgabepfade angegeben.");
                 return false;
             }
             else if (outPath.Count == 2)
@@ -366,7 +366,7 @@ namespace buildgdi
                 fileOutput = true;
                 if (!Path.HasExtension(outPath[0]) || !Path.HasExtension(outPath[1]))
                 {
-                    Console.WriteLine("Output filenames are not valid!");
+                    Console.WriteLine("Die Ausgabe Dateinamen sind nicht gültig!");
                     return false;
                 }
             }
@@ -383,13 +383,13 @@ namespace buildgdi
                 }
                 if (truncate && fileOutput)
                 {
-                    Console.WriteLine("Can't output a single data track in truncated data mode.");
-                    Console.WriteLine("Please provide two different output tracks.");
+                    Console.WriteLine("Im Modus Abgeschnittene Daten kann eine einzelne Datenspur nicht ausgegeben werden.");
+                    Console.WriteLine("Bitte geben Sie zwei verschiedene Tracks an.");
                     return false;
                 }
                 if (cdda.Count > 0 && fileOutput)
                 {
-                    Console.WriteLine("Can't output a single track when CDDA is specified.");
+                    Console.WriteLine("Es kann kein einzelner Track ausgegeben werden, wenn CDDA angegeben ist.");
                     return false;
                 }
             }
@@ -451,31 +451,32 @@ namespace buildgdi
 
         private static void PrintUsage()
         {
-            Console.WriteLine("BuildGDI - Command line GDIBuilder");
-            Console.WriteLine("Usage: buildgdi -data dataFolder -ip IP.BIN -cdda track04.raw track05.raw -output folder -gdi disc.gdi");
             Console.WriteLine();
-            Console.WriteLine("Arguments:");
-            Console.WriteLine("-data <folder> (Required) = Location of the files for the disc");
-            Console.WriteLine("-ip <file> (Required) = Location of disc IP.BIN bootsector");
-            Console.WriteLine("-cdda <files> (Optional) = List of RAW CDDA tracks on the disc");
-            Console.WriteLine("-output <folder or file(s)> (Required) = Output location");
-            Console.WriteLine("   If output is a folder, tracks with default filenames will be generated.");
-            Console.WriteLine("   Otherwise, specify one filename for track03.bin on data only discs, ");
-            Console.WriteLine("   or two files for discs with CDDA.");
-            Console.WriteLine("-gdi <file> (Optional) = Path of the disc.gdi file for this disc");
-            Console.WriteLine("   Existing GDI files will be updated with the new tracks.");
-            Console.WriteLine("   If no GDI exists, only lines for tracks 3 and above will be written.");
-            Console.WriteLine("-V <volume identifier> (Optional) = The volume name (Default is DREAMCAST)");
-            Console.WriteLine("-iso (Optional) = Output 2048 byte disc sectors found in ISO9660 instead of 2352");
-            Console.WriteLine("-truncate (Optional) = Do not pad generated data to the correct size");
-            Console.WriteLine("-date (Optional) = Set a custom date and time that the disc was created");
-            Console.WriteLine("-rebuild (Optional) = Build a new GDI using an existing one as a data source");
-            Console.WriteLine("   Requires the -gdi, -data and -output arguments. Files will be copied from ");
-            Console.WriteLine("   the original disc. Files in the -data folder will be added to the copied ");
-            Console.WriteLine("   disc if they are new, or replace existing files in the same location.");
-            Console.WriteLine("   This requires -output to be a folder. -ip is optional to replace the existing IP.BIN.");
-            Console.WriteLine("-extract (Optional) =  Extracts a GDI file to a folder");
-            Console.WriteLine("   Extraction requires the -gdi and -output arguments. -ip is optional to extract IP.BIN.");
+            Console.WriteLine("BuildGDI - Command line GDIBuilder");
+            Console.WriteLine("Verwendung: buildgdi -data dataFolder -ip IP.BIN -cdda track04.raw track05.raw -output folder -gdi disc.gdi");
+            Console.WriteLine();
+            Console.WriteLine("Parameter:");
+            Console.WriteLine("-data <Ordner> (Erforderlich) = Speicherort der Dateien für die Disk");
+            Console.WriteLine("-ip <Datei> (Erforderlich) = Speicherort des Bootsektors der Disk IP.BIN");
+            Console.WriteLine("-cdda <Dateien> (Optional) = Liste der RAW CDDA-Titel auf der Disk");
+            Console.WriteLine("-output <Ordner oder Datei(en)> (Erforderlich) = Ausgabeort");
+            Console.WriteLine("   Wenn es sich bei der Ausgabe um einen Ordner handelt, werden Tracks mit Standard Dateinamen generiert.");
+            Console.WriteLine("   Gebe andernfalls einen Dateinamen für track03.bin auf reinen Daten Disks an. ");
+            Console.WriteLine("   oder zwei Dateien für Disks mit CDDA.");
+            Console.WriteLine("-gdi <Datei> (Optional) = Pfad der disc.gdi Datei für diese Disk");
+            Console.WriteLine("   Vorhandene GDI Dateien werden mit den neuen Tracks aktualisiert.");
+            Console.WriteLine("   Wenn kein GDI vorhanden ist, werden nur Zeilen für Track 3 und höher geschrieben.");
+            Console.WriteLine("-V <Datenträgerkennzeichen> (Optional) = Der Name des Datenträgers (Standard ist DREAMCAST)");
+            Console.WriteLine("-iso (Optional) = Ausgabe von 2048 Byte Disk Sektoren, die in ISO9660 gefunden wurden, anstelle von 2352");
+            Console.WriteLine("-truncate (Optional) = Generierte Daten nicht auf die richtige Größe auffüllen");
+            Console.WriteLine("-date (Optional) = Legen Sie ein benutzerdefiniertes Datum und eine benutzerdefinierte Uhrzeit fest,\n                   zu der die Disk erstellt wurde.");
+            Console.WriteLine("-rebuild (Optional) = Erstellen einer neuen GDI unter Verwendung einer bestehenden GDI als Datenquelle");
+            Console.WriteLine("   Erfordert die Argumente -gdi, -data und -output. Die Dateien werden kopiert von ");
+            Console.WriteLine("   der Originalen Disk. Dateien im Ordner -data werden der kopierten Disk hinzugefügt,");
+            Console.WriteLine("   wenn es sich um neue Dateien handelt, oder sie ersetzen vorhandene Dateien am gleichen Ort.");
+            Console.WriteLine("   Dazu muss -output ein Ordner sein. -ip ist optional, um die vorhandene IP.BIN zu ersetzen.");
+            Console.WriteLine("-extract (Optional) =  Extrahiert eine GDI Datei in einen Ordner");
+            Console.WriteLine("   Für die Extraktion sind die Argumente -gdi und -output erforderlich. -ip ist optional, um IP.BIN zu extrahieren.");
         }
     }
 }

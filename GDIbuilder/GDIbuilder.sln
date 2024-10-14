@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GDIbuilder", "GDIbuilder.csproj", "{80DB9BF7-5536-40D3-8EC3-CB7AEBF27716}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GDIBuilder", "GDIBuilder.csproj", "{80DB9BF7-5536-40D3-8EC3-CB7AEBF27716}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "buildgdi", "..\buildgdi\buildgdi.csproj", "{50639B74-0DA3-4BF3-AA79-AFF0B953B1C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildGDI", "..\buildgdi\BuildGDI.csproj", "{50639B74-0DA3-4BF3-AA79-AFF0B953B1C3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscUtilsGD", "..\DiscUtilsGD\DiscUtilsGD.csproj", "{3DADDAAD-3E6D-46D1-97E9-2309193545D6}"
 EndProject

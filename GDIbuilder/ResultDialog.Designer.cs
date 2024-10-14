@@ -28,69 +28,71 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtResult = new System.Windows.Forms.TextBox();
-            this.btnOK = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            label1 = new System.Windows.Forms.Label();
+            txtResult = new System.Windows.Forms.TextBox();
+            btnOK = new System.Windows.Forms.Button();
+            label2 = new System.Windows.Forms.Label();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(375, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "GD-ROM build complete. Here is the track info you need to use in the GDI file:";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(19, 15);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(405, 30);
+            label1.TabIndex = 0;
+            label1.Text = "GD-ROM Erstellung abgeschlossen.\nHier sind die Track Informationen, die du in der GDI Datei verwenden musst:";
             // 
             // txtResult
             // 
-            this.txtResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtResult.Location = new System.Drawing.Point(16, 29);
-            this.txtResult.Multiline = true;
-            this.txtResult.Name = "txtResult";
-            this.txtResult.ReadOnly = true;
-            this.txtResult.Size = new System.Drawing.Size(400, 115);
-            this.txtResult.TabIndex = 1;
+            txtResult.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtResult.Location = new System.Drawing.Point(19, 48);
+            txtResult.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtResult.Multiline = true;
+            txtResult.Name = "txtResult";
+            txtResult.ReadOnly = true;
+            txtResult.Size = new System.Drawing.Size(466, 132);
+            txtResult.TabIndex = 1;
             // 
             // btnOK
             // 
-            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(341, 163);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 2;
-            this.btnOK.Text = "OK";
-            this.btnOK.UseVisualStyleBackColor = true;
+            btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            btnOK.Location = new System.Drawing.Point(398, 188);
+            btnOK.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnOK.Name = "btnOK";
+            btnOK.Size = new System.Drawing.Size(88, 27);
+            btnOK.TabIndex = 2;
+            btnOK.Text = "OK";
+            btnOK.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 147);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(360, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "If disc.gdi exists in the output folder, this was updated for you automatically.";
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(19, 188);
+            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(311, 30);
+            label2.TabIndex = 3;
+            label2.Text = "Wenn die Datei Disc.gdi im Ausgabeordner vorhanden ist,\nwurde diese automatisch für dich aktualisiert.";
             // 
             // ResultDialog
             // 
-            this.AcceptButton = this.btnOK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 198);
-            this.ControlBox = false;
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.txtResult);
-            this.Controls.Add(this.label1);
-            this.Name = "ResultDialog";
-            this.Text = "Finished";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AcceptButton = btnOK;
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(499, 228);
+            ControlBox = false;
+            Controls.Add(label2);
+            Controls.Add(btnOK);
+            Controls.Add(txtResult);
+            Controls.Add(label1);
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Name = "ResultDialog";
+            Text = "Fertig";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

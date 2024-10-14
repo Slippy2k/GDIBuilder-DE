@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GDIbuilder")]
+[assembly: AssemblyTitle("GDIBuilder")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("GDIbuilder")]
-[assembly: AssemblyCopyright("Copyright © 2014-2019")]
+[assembly: AssemblyProduct("GDIBuilder")]
+[assembly: AssemblyCopyright("Copyright © 2014-2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

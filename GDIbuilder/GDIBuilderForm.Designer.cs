@@ -54,7 +54,7 @@
             // txtData
             // 
             txtData.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtData.Location = new System.Drawing.Point(84, 15);
+            txtData.Location = new System.Drawing.Point(89, 15);
             txtData.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             txtData.Name = "txtData";
             txtData.ReadOnly = true;
@@ -64,12 +64,12 @@
             // lblDataDir
             // 
             lblDataDir.AutoSize = true;
-            lblDataDir.Location = new System.Drawing.Point(14, 18);
+            lblDataDir.Location = new System.Drawing.Point(3, 18);
             lblDataDir.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblDataDir.Name = "lblDataDir";
-            lblDataDir.Size = new System.Drawing.Size(58, 15);
+            lblDataDir.Size = new System.Drawing.Size(84, 15);
             lblDataDir.TabIndex = 1;
-            lblDataDir.Text = "Data files:";
+            lblDataDir.Text = "Daten Dateien:";
             // 
             // btnSelectData
             // 
@@ -77,21 +77,22 @@
             btnSelectData.Location = new System.Drawing.Point(423, 14);
             btnSelectData.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnSelectData.Name = "btnSelectData";
-            btnSelectData.Size = new System.Drawing.Size(88, 27);
+            btnSelectData.Size = new System.Drawing.Size(99, 27);
             btnSelectData.TabIndex = 2;
-            btnSelectData.Text = "Browse...";
+            btnSelectData.Text = "Durchsuchen...";
             btnSelectData.UseVisualStyleBackColor = true;
             btnSelectData.Click += btnSelectData_Click;
             // 
             // txtIpBin
             // 
             txtIpBin.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtIpBin.Location = new System.Drawing.Point(84, 46);
+            txtIpBin.Location = new System.Drawing.Point(89, 47);
             txtIpBin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             txtIpBin.Name = "txtIpBin";
             txtIpBin.ReadOnly = true;
             txtIpBin.Size = new System.Drawing.Size(326, 23);
             txtIpBin.TabIndex = 3;
+            txtIpBin.TextChanged += txtIpBin_TextChanged;
             // 
             // lblIpBin
             // 
@@ -109,9 +110,9 @@
             btnSelectIP.Location = new System.Drawing.Point(423, 45);
             btnSelectIP.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnSelectIP.Name = "btnSelectIP";
-            btnSelectIP.Size = new System.Drawing.Size(88, 27);
+            btnSelectIP.Size = new System.Drawing.Size(99, 27);
             btnSelectIP.TabIndex = 5;
-            btnSelectIP.Text = "Browse...";
+            btnSelectIP.Text = "Durchsuchen...";
             btnSelectIP.UseVisualStyleBackColor = true;
             btnSelectIP.Click += btnSelectIP_Click;
             // 
@@ -121,7 +122,7 @@
             lstCdda.FormattingEnabled = true;
             lstCdda.IntegralHeight = false;
             lstCdda.ItemHeight = 15;
-            lstCdda.Location = new System.Drawing.Point(84, 77);
+            lstCdda.Location = new System.Drawing.Point(89, 77);
             lstCdda.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             lstCdda.Name = "lstCdda";
             lstCdda.Size = new System.Drawing.Size(326, 109);
@@ -143,16 +144,16 @@
             btnAddCdda.Location = new System.Drawing.Point(423, 78);
             btnAddCdda.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnAddCdda.Name = "btnAddCdda";
-            btnAddCdda.Size = new System.Drawing.Size(88, 27);
+            btnAddCdda.Size = new System.Drawing.Size(99, 27);
             btnAddCdda.TabIndex = 8;
-            btnAddCdda.Text = "Add...";
+            btnAddCdda.Text = "Hinzufügen...";
             btnAddCdda.UseVisualStyleBackColor = true;
             btnAddCdda.Click += btnSelCdda_Click;
             // 
             // txtOutdir
             // 
             txtOutdir.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtOutdir.Location = new System.Drawing.Point(84, 192);
+            txtOutdir.Location = new System.Drawing.Point(89, 192);
             txtOutdir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             txtOutdir.Name = "txtOutdir";
             txtOutdir.ReadOnly = true;
@@ -163,12 +164,12 @@
             // 
             lblOutDir.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             lblOutDir.AutoSize = true;
-            lblOutDir.Location = new System.Drawing.Point(12, 195);
+            lblOutDir.Location = new System.Drawing.Point(3, 197);
             lblOutDir.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblOutDir.Name = "lblOutDir";
-            lblOutDir.Size = new System.Drawing.Size(65, 15);
+            lblOutDir.Size = new System.Drawing.Size(78, 15);
             lblOutDir.TabIndex = 10;
-            lblOutDir.Text = "Output dir:";
+            lblOutDir.Text = "Ausgang DIR:";
             // 
             // btnSelOutput
             // 
@@ -176,21 +177,21 @@
             btnSelOutput.Location = new System.Drawing.Point(423, 191);
             btnSelOutput.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnSelOutput.Name = "btnSelOutput";
-            btnSelOutput.Size = new System.Drawing.Size(88, 27);
+            btnSelOutput.Size = new System.Drawing.Size(99, 27);
             btnSelOutput.TabIndex = 11;
-            btnSelOutput.Text = "Browse...";
+            btnSelOutput.Text = "Durchsuchen...";
             btnSelOutput.UseVisualStyleBackColor = true;
             btnSelOutput.Click += btnSelOutput_Click;
             // 
             // btnMake
             // 
             btnMake.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            btnMake.Location = new System.Drawing.Point(379, 252);
+            btnMake.Location = new System.Drawing.Point(390, 252);
             btnMake.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnMake.Name = "btnMake";
             btnMake.Size = new System.Drawing.Size(132, 27);
             btnMake.TabIndex = 12;
-            btnMake.Text = "Create GD-ROM";
+            btnMake.Text = "GD-ROM erstellen";
             btnMake.UseVisualStyleBackColor = true;
             btnMake.Click += btnMake_Click;
             // 
@@ -200,7 +201,7 @@
             pbProgress.Location = new System.Drawing.Point(14, 286);
             pbProgress.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pbProgress.Name = "pbProgress";
-            pbProgress.Size = new System.Drawing.Size(415, 21);
+            pbProgress.Size = new System.Drawing.Size(426, 21);
             pbProgress.TabIndex = 13;
             // 
             // btnRemoveCdda
@@ -209,9 +210,9 @@
             btnRemoveCdda.Location = new System.Drawing.Point(423, 112);
             btnRemoveCdda.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnRemoveCdda.Name = "btnRemoveCdda";
-            btnRemoveCdda.Size = new System.Drawing.Size(88, 27);
+            btnRemoveCdda.Size = new System.Drawing.Size(99, 27);
             btnRemoveCdda.TabIndex = 15;
-            btnRemoveCdda.Text = "Remove";
+            btnRemoveCdda.Text = "Entfernen";
             btnRemoveCdda.UseVisualStyleBackColor = true;
             btnRemoveCdda.Click += btnRemoveCdda_Click;
             // 
@@ -222,7 +223,7 @@
             btnMoveCddaUp.Name = "btnMoveCddaUp";
             btnMoveCddaUp.Size = new System.Drawing.Size(52, 27);
             btnMoveCddaUp.TabIndex = 16;
-            btnMoveCddaUp.Text = "Up";
+            btnMoveCddaUp.Text = "Hoch";
             btnMoveCddaUp.UseVisualStyleBackColor = true;
             btnMoveCddaUp.Click += btnMoveCddaUp_Click;
             // 
@@ -233,7 +234,7 @@
             btnMoveCddaDown.Name = "btnMoveCddaDown";
             btnMoveCddaDown.Size = new System.Drawing.Size(52, 27);
             btnMoveCddaDown.TabIndex = 17;
-            btnMoveCddaDown.Text = "Down";
+            btnMoveCddaDown.Text = "Runter";
             btnMoveCddaDown.UseVisualStyleBackColor = true;
             btnMoveCddaDown.Click += btnMoveCddaDown_Click;
             // 
@@ -245,7 +246,7 @@
             btnAdvanced.Name = "btnAdvanced";
             btnAdvanced.Size = new System.Drawing.Size(158, 27);
             btnAdvanced.TabIndex = 19;
-            btnAdvanced.Text = "Advanced Options...";
+            btnAdvanced.Text = "Erweiterte Optionen...";
             btnAdvanced.UseVisualStyleBackColor = true;
             btnAdvanced.Click += btnAdvanced_Click;
             // 
@@ -258,20 +259,20 @@
             chkRawMode.Location = new System.Drawing.Point(248, 227);
             chkRawMode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkRawMode.Name = "chkRawMode";
-            chkRawMode.Size = new System.Drawing.Size(195, 19);
+            chkRawMode.Size = new System.Drawing.Size(241, 19);
             chkRawMode.TabIndex = 20;
-            chkRawMode.Text = "Output raw sectors (2352 mode)";
+            chkRawMode.Text = "Ausgabe von RAW Sektoren (2352 Mode)";
             chkRawMode.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
             btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             btnCancel.Enabled = false;
-            btnCancel.Location = new System.Drawing.Point(437, 285);
+            btnCancel.Location = new System.Drawing.Point(447, 286);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new System.Drawing.Size(75, 23);
             btnCancel.TabIndex = 21;
-            btnCancel.Text = "Cancel";
+            btnCancel.Text = "Abbrechen";
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnCancel_Click;
             // 
@@ -304,7 +305,7 @@
             Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             MinimumSize = new System.Drawing.Size(540, 360);
             Name = "GDIBuilderForm";
-            Text = "Build GDI tracks";
+            Text = "GDI Tracks erstellen";
             ResumeLayout(false);
             PerformLayout();
         }

@@ -241,6 +241,11 @@ namespace GDIbuilder
         {
             _cancelTokenSource?.Cancel();
         }
+
+        private void txtIpBin_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class CddaItem

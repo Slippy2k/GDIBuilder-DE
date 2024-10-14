@@ -6,6 +6,17 @@
         <Authors>Kenneth Bell;Quamotion;LordMike;Sappharad</Authors>
         <PackageTags>DiscUtils;VHD;VDI;XVA;VMDK;ISO;NTFS;EXT2FS</PackageTags>
         <TargetFramework>netstandard2.0</TargetFramework>
+        <PlatformTarget>x64</PlatformTarget>
+        <RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
+        <RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+      <DebugType>none</DebugType>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+      <DebugType>none</DebugType>
     </PropertyGroup>
     
     <ItemGroup Condition=" '$(TargetFramework)' == 'net5.0' ">
